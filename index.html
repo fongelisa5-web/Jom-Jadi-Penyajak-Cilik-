@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Jom Jadi Penyajak Cilik!</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  background: linear-gradient(135deg, #fff4df, #f6eaff, #e5f4ff);
+  color: #40364a;
+}
+
+.container {
+  max-width: 850px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* HEADER */
+.hero {
+  background: rgba(255,255,255,0.95);
+  border-radius: 30px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.hero-icon {
+  font-size: 55px;
+}
+
+.hero h1 {
+  margin: 8px 0;
+  color: #7652a8;
+  font-size: 32px;
+}
+
+.hero p {
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* SECTION */
+.section {
+  margin-top: 22px;
+}
+
+.section-title {
+  text-align: center;
+  color: #7652a8;
+  margin-bottom: 15px;
+}
+
+/* POEM CARDS */
+.poem-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.poem-choice {
+  background: white;
+  border: 3px solid transparent;
+  border-radius: 22px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+  transition: 0.25s;
+}
+
+.poem-choice:hover {
+  transform: translateY(-4px);
+}
+
+.poem-choice.selected {
+  border-color: #9b72c5;
+  background: #f7f0ff;
+}
+
+.poem-icon {
+  font-size: 42px;
+}
+
+.poem-choice h3 {
+  color: #7652a8;
+  margin: 10px 0 5px;
+}
+
+.poem-choice p {
+  margin: 0;
+  font-size: 14px;
+  color: #777;
+}
+
+/* SELECTED POEM */
+.selected-poem {
+  display: none;
+  background: #fffdf8;
+  border-radius: 25px;
+  padding: 25px;
+  margin-top: 20px;
+  box-shadow: 0 7px 20px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.selected-poem h2 {
+  color: #7652a8;
+}
+
+.poem-text {
+  font-size: 19px;
+  line-height: 1.9;
+  margin: 20px 0;
+}
+
+.rangkap {
+  background: #faf5ff;
+  border-radius: 16px;
+  padding: 15px;
+  margin: 12px 0;
+}
+
+.rangkap-label {
+  font-weight: bold;
+  color: #7652a8;
+  margin-bottom: 8px;
+}
+
+.poem-instruction {
+  background: #f3ebff;
+  border-radius: 15px;
+  padding: 12px;
+  font-size: 14px;
+}
+
+/* NAME */
+.name-box {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.name-box label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.name-box input {
+  width: 100%;
+  padding: 13px;
+  border: 2px solid #dfd1ec;
+  border-radius: 12px;
+  font-size: 16px;
+}
+
+/* RECORD */
+.record-card {
+  background: rgba(255,255,255,0.96);
+  border-radius: 25px;
+  padding: 28px 20px;
+  margin-top: 20px;
+  text-align: center;
+  box-shadow: 0 7px 20px rgba(0,0,0,0.08);
+}
+
+.mic {
+  font-size: 60px;
+}
+
+.status {
+  font-weight: bold;
+  min-height: 25px;
+  margin: 10px;
+}
+
+.timer {
+  font-size: 42px;
+  font-weight: bold;
+  color: #7652a8;
+  margin: 10px;
+}
+
+/* BUTTONS */
+button {
+  border: none;
+  border-radius: 15px;
+  padding: 13px 20px;
+  margin: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+.start {
+  background: #82c991;
+  color: white;
+}
+
+.stop {
+  background: #ed7777;
+  color: white;
+}
+
+.retry {
+  background: #f0b36b;
+  color: white;
+}
+
+.download {
+  background: #6e9ed8;
+  color: white;
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+audio {
+  width: 100%;
+  margin: 15px 0;
+}
+
+.tip {
+  background: #fff4d9;
+  border-radius: 16px;
+  padding: 16px;
+  margin-top: 20px;
+  line-height: 1.6;
+}
+
+.success {
+  display: none;
+  background: #e2f6e6;
+  color: #327341;
+  padding: 14px;
+  border-radius: 15px;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+/* MOBILE */
+@media(max-width:600px) {
+  .poem-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 27px;
+  }
+
+  .poem-text {
+    font-size: 17px;
+  }
+
+  button {
+    width: 90%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- HERO -->
+<div class="hero">
+
+  <div class="hero-icon">🎙️📖✨</div>
+
+  <h1>Jom Jadi Penyajak Cilik!</h1>
+
+  <p>
+    Adakah kamu mahu menjadi seorang penyajak cilik?
+    Pilih sajak yang kamu suka, hayati maksudnya,
+    kemudian deklamasikan dengan nada yang sesuai.
+  </p>
+
+</div>
+
+
+<!-- PILIH SAJAK -->
+<div class="section">
+
+  <h2 class="section-title">
+    🌈 Langkah 1: Pilih Sajak Kamu
+  </h2>
+
+  <div class="poem-grid">
+
+    <div class="poem-choice" onclick="choosePoem(1,this)">
+      <div class="poem-icon">🤝</div>
+      <h3>Kita Bersatu</h3>
+      <p>Tentang perpaduan dan sikap saling menghormati</p>
+    </div>
+
+    <div class="poem-choice" onclick="choosePoem(2,this)">
+      <div class="poem-icon">🎨</div>
+      <h3>Warna Budaya</h3>
+      <p>Tentang kepelbagaian budaya di Malaysia</p>
+    </div>
+
+    <div class="poem-choice" onclick="choosePoem(3,this)">
+      <div class="poem-icon">🤝</div>
+      <h3>Hidup Bersama</h3>
+      <p>Tentang persahabatan dan keharmonian</p>
+    </div>
+
+    <div class="poem-choice" onclick="choosePoem(4,this)">
+      <div class="poem-icon">🌈</div>
+      <h3>Indahnya Perpaduan</h3>
+      <p>Tentang kepentingan perpaduan</p>
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- SAJAK TERPILIH -->
+<div id="selectedPoem" class="selected-poem">
+
+  <h2 id="poemTitle"></h2>
+
+  <div id="poemText" class="poem-text"></div>
+
+  <div class="poem-instruction">
+    💡 <strong>Tip Penyajak:</strong>
+    Baca dengan sebutan yang jelas, gunakan jeda
+    dan nada yang sesuai dengan maksud sajak.
+  </div>
+
+</div>
+
+
+<!-- NAMA -->
+<div class="name-box">
+
+  <label for="studentName">
+    👧 Langkah 2: Nama Panggilan
+  </label>
+
+  <input
+    type="text"
+    id="studentName"
+    placeholder="Contoh: Aisyah"
+  >
+
+</div>
+
+
+<!-- RECORD -->
+<div class="record-card">
+
+  <div class="mic">🎙️</div>
+
+  <h2>Langkah 3: Rakam Deklamasi</h2>
+
+  <div id="status" class="status">
+    Pilih satu sajak terlebih dahulu.
+  </div>
+
+  <div id="timer" class="timer">
+    00:00
+  </div>
+
+  <button
+    id="startBtn"
+    class="start"
+    onclick="startRecording()"
+    disabled>
+    🔴 Mula Rakam
+  </button>
+
+  <button
+    id="stopBtn"
+    class="stop"
+    onclick="stopRecording()"
+    disabled>
+    ⏹️ Hentikan
+  </button>
+
+  <div id="audioBox"></div>
+
+  <button
+    id="retryBtn"
+    class="retry"
+    onclick="resetRecording()"
+    disabled>
+    🔄 Cuba Sekali Lagi
+  </button>
+
+  <button
+    id="downloadBtn"
+    class="download"
+    onclick="downloadRecording()"
+    disabled>
+    📥 Muat Turun Rakaman
+  </button>
+
+  <div id="success" class="success">
+    🎉 Hebat! Rakaman kamu sudah siap.
+    Jangan lupa simpan fail rakaman kamu.
+  </div>
+
+</div>
+
+
+<!-- TIP -->
+<div class="tip">
+
+  🎭 <strong>Rahsia Penyajak Cilik:</strong>
+
+  <br><br>
+
+  🗣️ Sebut dengan jelas<br>
+  🎵 Gunakan nada yang sesuai<br>
+  ⏸️ Berhenti seketika pada tempat yang sesuai<br>
+  ❤️ Hayati maksud sajak<br>
+  😊 Berani dan yakin!
+
+  <br><br>
+
+  ⏱️ Masa maksimum: <strong>60 saat</strong>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* ==============================
+   DATA SAJAK
+============================== */
+
+const poems = {
+
+  1: {
+    title: "🤝 Kita Bersatu",
+    text: `
+      <div class="rangkap">
+        <div class="rangkap-label">Rangkap 1</div>
+        Kita hidup dalam kepelbagaian,<br>
+        berbeza bahasa dan budaya.<br>
+        Namun kita saling mengenali,<br>
+        dan hidup bersama dengan harmoni.
+      </div>
+
+      <div class="rangkap">
+        <div class="rangkap-label">Rangkap 2</div>
+        Kita belajar saling menghormati,<br>
+        tanpa mengira siapa diri kita.<br>
+        Bersama menjaga perpaduan,<br>
+        agar negara terus sejahtera.
+      </div>
+    `
+  },
+
+
+  2: {
+    title: "🎨 Warna Budaya",
+    text: `
+      <div class="rangkap">
+        <div class="rangkap-label">Rangkap 1</div>
+        Pelbagai budaya ada di negara kita,<br>
+        setiap satunya begitu istimewa.<br>
+        Kita mengenali adat dan tradisi,<br>
+        dengan hati yang terbuka.
+      </div>
+
+      <div class="rangkap">
+        <div class="rangkap-label">Rangkap 2</div>
+        Kita berkongsi cerita dan pengalaman,<br>
+        sambil menghargai perbezaan.<br>
+        Kepelbagaian menyatukan kita,<br>
+        dalam kehidupan yang aman.
+      </div>
+    `
+  },
+
+
+  3: {
+    title: "🤝 Hidup Bersama",
+    text: `
+      <div class="rangkap">
+        <div class="rangkap-label">Rangkap 1</div>
+        Kita belajar dan bermain bersama,<br>
+        tanpa membezakan kawan.<br>
+        Kita saling membantu,<br>
+        ketika susah dan senang.
+      </div>
+
+      <div class="rangkap">
+        <div class="rangkap-label">Rangkap 2</div>
+        Kita menghormati setiap budaya,<br>
+        dan menerima perbezaan dengan ikhlas.<br>
+        Jika kita sentiasa bersatu,<br>
+        hidup menjadi lebih harmoni.
+      </div>
+    `
+  },
+
+
+  4: {
+    title: "🌈 Indahnya Perpaduan",
+    text: `
+      <div class="rangkap">
+        <div class="rangkap-label">Rangkap 1</div>
+        Perpaduan bermula daripada kita,<br>
+        daripada sikap saling menghormati.<br>
+        Walaupun kita tidak sama,<br>
+        kita tetap boleh berkawan.
+      </div>
+
+      <div class="rangkap">
+        <div class="rangkap-label">Rangkap 2</div>
+        Mari kita berganding bahu,<br>
+        menjaga keharmonian bersama.<br>
+        Dengan perpaduan yang kukuh,<br>
+        Malaysia menjadi lebih bahagia.
+      </div>
+    `
+  }
+
+};
+
+
+/* ==============================
+   VARIABLES
+============================== */
+
+let selectedPoem = null;
+let mediaRecorder;
+let audioChunks = [];
+let audioBlob;
+let audioURL;
+let timerInterval;
+let seconds = 0;
+const MAX_TIME = 60;
+
+
+/* ==============================
+   CHOOSE POEM
+============================== */
+
+function choosePoem(number, card) {
+
+  selectedPoem = poems[number];
+
+  document.getElementById("poemTitle").innerHTML =
+    selectedPoem.title;
+
+  document.getElementById("poemText").innerHTML =
+    selectedPoem.text;
+
+  document.getElementById("selectedPoem").style.display =
+    "block";
+
+  document.querySelectorAll(".poem-choice")
+    .forEach(item => {
+      item.classList.remove("selected");
+    });
+
+  card.classList.add("selected");
+
+  document.getElementById("startBtn").disabled = false;
+
+  document.getElementById("status").innerText =
+    "🎙️ Sedia? Tekan 'Mula Rakam'.";
+
+  document.getElementById("selectedPoem")
+    .scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+}
+
+
+/* ==============================
+   START RECORDING
+============================== */
+
+async function startRecording() {
+
+  if(!selectedPoem) {
+    alert("Sila pilih sajak terlebih dahulu.");
+    return;
+  }
+
+  try {
+
+    const stream =
+      await navigator.mediaDevices.getUserMedia({
+        audio: true
+      });
+
+    audioChunks = [];
+
+    mediaRecorder =
+      new MediaRecorder(stream);
+
+    mediaRecorder.ondataavailable =
+      function(event) {
+
+        if(event.data.size > 0) {
+          audioChunks.push(event.data);
+        }
+
+      };
+
+    mediaRecorder.onstop =
+      function() {
+
+        audioBlob =
+          new Blob(
+            audioChunks,
+            { type: "audio/webm" }
+          );
+
+        audioURL =
+          URL.createObjectURL(audioBlob);
+
+        document.getElementById("audioBox")
+          .innerHTML = `
+            <p><strong>🎧 Dengar semula:</strong></p>
+
+            <audio
+              controls
+              src="${audioURL}">
+            </audio>
+          `;
+
+        document.getElementById("retryBtn")
+          .disabled = false;
+
+        document.getElementById("downloadBtn")
+          .disabled = false;
+
+        document.getElementById("success")
+          .style.display = "block";
+      };
+
+    mediaRecorder.start();
+
+    seconds = 0;
+    updateTimer();
+
+    timerInterval =
+      setInterval(function() {
+
+        seconds++;
+        updateTimer();
+
+        if(seconds >= MAX_TIME) {
+          stopRecording();
+        }
+
+      }, 1000);
+
+    document.getElementById("status").innerText =
+      "🔴 Sedang Merakam...";
+
+    document.getElementById("startBtn").disabled = true;
+    document.getElementById("stopBtn").disabled = false;
+
+  }
+
+  catch(error) {
+
+    console.error(error);
+
+    alert(
+      "⚠️ Mikrofon tidak dapat digunakan. Sila benarkan akses mikrofon."
+    );
+  }
+}
+
+
+/* ==============================
+   STOP RECORDING
+============================== */
+
+function stopRecording() {
+
+  if(
+    mediaRecorder &&
+    mediaRecorder.state !== "inactive"
+  ) {
+
+    mediaRecorder.stop();
+
+    mediaRecorder.stream
+      .getTracks()
+      .forEach(track => track.stop());
+  }
+
+  clearInterval(timerInterval);
+
+  document.getElementById("status").innerText =
+    "✅ Rakaman selesai! Dengarkan semula suara kamu.";
+
+  document.getElementById("startBtn").disabled = false;
+  document.getElementById("stopBtn").disabled = true;
+}
+
+
+/* ==============================
+   TIMER
+============================== */
+
+function updateTimer() {
+
+  let minutes =
+    Math.floor(seconds / 60);
+
+  let secs =
+    seconds % 60;
+
+  document.getElementById("timer").innerText =
+    String(minutes).padStart(2,"0")
+    + ":" +
+    String(secs).padStart(2,"0");
+}
+
+
+/* ==============================
+   RESET
+============================== */
+
+function resetRecording() {
+
+  if(audioURL) {
+    URL.revokeObjectURL(audioURL);
+  }
+
+  audioBlob = null;
+  audioURL = null;
+  audioChunks = [];
+
+  document.getElementById("audioBox")
+    .innerHTML = "";
+
+  document.getElementById("timer")
+    .innerText = "00:00";
+
+  document.getElementById("status")
+    .innerText =
+    "🎙️ Sedia untuk merakam semula.";
+
+  document.getElementById("retryBtn")
+    .disabled = true;
+
+  document.getElementById("downloadBtn")
+    .disabled = true;
+
+  document.getElementById("success")
+    .style.display = "none";
+}
+
+
+/* ==============================
+   DOWNLOAD
+============================== */
+
+function downloadRecording() {
+
+  if(!audioBlob) {
+
+    alert("Tiada rakaman untuk dimuat turun.");
+    return;
+
+  }
+
+  let name =
+    document
+      .getElementById("studentName")
+      .value
+      .trim();
+
+  if(!name) {
+    name = "Penyajak-Cilik";
+  }
+
+  let link =
+    document.createElement("a");
+
+  link.href = audioURL;
+
+  link.download =
+    name.replace(/\s+/g,"-")
+    + "-rakaman-sajak.webm";
+
+  document.body.appendChild(link);
+
+  link.click();
+
+  document.body.removeChild(link);
+}
+
+</script>
+
+</body>
+</html>
