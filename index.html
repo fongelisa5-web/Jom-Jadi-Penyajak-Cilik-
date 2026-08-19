@@ -25,9 +25,7 @@ body {
   padding: 18px;
 }
 
-/* =========================
-   HERO
-========================= */
+/* HERO */
 
 .hero {
   background: rgba(255,255,255,0.96);
@@ -52,10 +50,7 @@ body {
   margin-bottom: 0;
 }
 
-
-/* =========================
-   SECTION
-========================= */
+/* SECTION */
 
 .section {
   margin-top: 24px;
@@ -66,10 +61,7 @@ body {
   color: #7652a8;
 }
 
-
-/* =========================
-   POEM CARDS
-========================= */
+/* POEM CARDS */
 
 .poem-grid {
   display: grid;
@@ -112,10 +104,7 @@ body {
   color: #777;
 }
 
-
-/* =========================
-   SELECTED POEM
-========================= */
+/* SELECTED POEM */
 
 .selected-poem {
   display: none;
@@ -150,10 +139,7 @@ body {
   text-align: center;
 }
 
-
-/* =========================
-   NAME
-========================= */
+/* NAME */
 
 .name-box {
   background: white;
@@ -176,10 +162,7 @@ body {
   font-size: 16px;
 }
 
-
-/* =========================
-   RECORDING AREA
-========================= */
+/* RECORDING */
 
 .record-card {
   background: rgba(255,255,255,0.97);
@@ -188,7 +171,6 @@ body {
   margin-top: 22px;
   box-shadow: 0 7px 22px rgba(0,0,0,0.08);
 }
-
 
 /* SAJAK DALAM RUANG RAKAMAN */
 
@@ -222,7 +204,6 @@ body {
   margin-bottom: 5px;
 }
 
-
 /* RECORD CONTROLS */
 
 .record-controls {
@@ -246,10 +227,7 @@ body {
   margin: 10px;
 }
 
-
-/* =========================
-   BUTTONS
-========================= */
+/* BUTTONS */
 
 button {
   border: none;
@@ -286,15 +264,22 @@ button:hover {
   color: white;
 }
 
+.gallery-button {
+  background: #9b72c5;
+  color: white;
+}
+
+.next-button {
+  background: #82b5d8;
+  color: white;
+}
+
 button:disabled {
   opacity: 0.45;
   cursor: not-allowed;
 }
 
-
-/* =========================
-   AUDIO
-========================= */
+/* AUDIO */
 
 .audio-box {
   margin-top: 18px;
@@ -304,10 +289,7 @@ audio {
   width: 100%;
 }
 
-
-/* =========================
-   SUCCESS
-========================= */
+/* SUCCESS */
 
 .success {
   display: none;
@@ -319,10 +301,60 @@ audio {
   font-weight: bold;
 }
 
+/* GALLERY */
 
-/* =========================
-   TIP
-========================= */
+.gallery-section {
+  display: none;
+  margin-top: 25px;
+  background: rgba(255,255,255,0.97);
+  border-radius: 28px;
+  padding: 25px;
+  box-shadow: 0 7px 22px rgba(0,0,0,0.08);
+}
+
+.gallery-title {
+  text-align: center;
+  color: #7652a8;
+}
+
+.gallery-intro {
+  text-align: center;
+  font-size: 14px;
+  color: #777;
+  line-height: 1.5;
+}
+
+.gallery-item {
+  background: #faf5ff;
+  border-radius: 20px;
+  padding: 18px;
+  margin-top: 15px;
+  border: 2px solid #eadcf6;
+}
+
+.gallery-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #7652a8;
+}
+
+.gallery-poem {
+  font-size: 14px;
+  margin: 6px 0 12px;
+}
+
+.badge {
+  display: inline-block;
+  background: #fff0b8;
+  color: #856900;
+  padding: 7px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* TIP */
 
 .tip {
   background: #fff4d9;
@@ -332,10 +364,7 @@ audio {
   line-height: 1.6;
 }
 
-
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
 @media(max-width:600px) {
 
@@ -366,9 +395,7 @@ audio {
 <div class="container">
 
 
-<!-- =========================
-     HERO
-========================= -->
+<!-- HERO -->
 
 <div class="hero">
 
@@ -385,16 +412,13 @@ audio {
 </div>
 
 
-<!-- =========================
-     PILIH SAJAK
-========================= -->
+<!-- PILIH SAJAK -->
 
 <div class="section">
 
   <h2 class="section-title">
     🌈 Langkah 1: Pilih Sajak Kamu
   </h2>
-
 
   <div class="poem-grid">
 
@@ -462,15 +486,12 @@ audio {
 
     </div>
 
-
   </div>
 
 </div>
 
 
-<!-- =========================
-     SAJAK TERPILIH
-========================= -->
+<!-- SAJAK TERPILIH -->
 
 <div
   id="selectedPoem"
@@ -483,7 +504,6 @@ audio {
     id="poemText"
     class="poem-text"
   ></div>
-
 
   <div class="poem-instruction">
 
@@ -498,9 +518,7 @@ audio {
 </div>
 
 
-<!-- =========================
-     NAMA
-========================= -->
+<!-- NAMA -->
 
 <div class="name-box">
 
@@ -509,7 +527,6 @@ audio {
     👧 Langkah 2: Nama Panggilan
 
   </label>
-
 
   <input
     type="text"
@@ -520,14 +537,10 @@ audio {
 </div>
 
 
-<!-- =========================
-     RECORDING
-========================= -->
+<!-- RECORDING -->
 
 <div class="record-card">
 
-
-  <!-- SAJAK DALAM RUANG RAKAMAN -->
 
   <div
     id="recordPoem"
@@ -543,37 +556,28 @@ audio {
   </div>
 
 
-  <!-- RECORD CONTROLS -->
-
   <div class="record-controls">
 
     <div class="mic">
       🎙️
     </div>
 
-
     <h2>
       Langkah 3: Rakam Deklamasi
     </h2>
-
 
     <div
       id="status"
       class="status"
     >
-
       Pilih satu sajak terlebih dahulu.
-
     </div>
-
 
     <div
       id="timer"
       class="timer"
     >
-
       00:00
-
     </div>
 
 
@@ -583,9 +587,7 @@ audio {
       onclick="startRecording()"
       disabled
     >
-
       🔴 Mula Rakam
-
     </button>
 
 
@@ -595,9 +597,7 @@ audio {
       onclick="stopRecording()"
       disabled
     >
-
       ⏹️ Hentikan
-
     </button>
 
 
@@ -613,9 +613,7 @@ audio {
       onclick="resetRecording()"
       disabled
     >
-
       🔄 Cuba Sekali Lagi
-
     </button>
 
 
@@ -625,9 +623,17 @@ audio {
       onclick="downloadRecording()"
       disabled
     >
-
       📥 Muat Turun Rakaman
+    </button>
 
+
+    <button
+      id="galleryBtn"
+      class="gallery-button"
+      onclick="addToGallery()"
+      disabled
+    >
+      🌟 Tambah ke Galeri
     </button>
 
 
@@ -639,7 +645,8 @@ audio {
       🎉 Hebat!
 
       Rakaman kamu sudah siap.
-      Dengarkan semula sebelum memuat turun.
+      Dengarkan semula sebelum memasukkannya
+      ke dalam Galeri Penyajak Cilik.
 
     </div>
 
@@ -648,9 +655,42 @@ audio {
 </div>
 
 
-<!-- =========================
-     TIPS
-========================= -->
+<!-- GALERI -->
+
+<div
+  id="gallerySection"
+  class="gallery-section"
+>
+
+  <h2 class="gallery-title">
+    🎧 Galeri Penyajak Cilik
+  </h2>
+
+  <p class="gallery-intro">
+
+    🌟 Dengarkan suara para penyajak cilik
+    dan raikan keberanian mereka
+    mendeklamasikan sajak perpaduan!
+
+  </p>
+
+  <div id="galleryList"></div>
+
+  <div style="text-align:center;margin-top:20px;">
+
+    <button
+      class="next-button"
+      onclick="newPoem()"
+    >
+      ✨ Cuba Sajak Lain
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- TIP -->
 
 <div class="tip">
 
@@ -688,7 +728,6 @@ audio {
 
 const poems = {
 
-
   1: {
 
     title: "🤝 Kita Bersatu",
@@ -707,7 +746,6 @@ const poems = {
         dan hidup bersama dengan harmoni.
 
       </div>
-
 
       <div class="rangkap">
 
@@ -746,7 +784,6 @@ const poems = {
 
       </div>
 
-
       <div class="rangkap">
 
         <div class="rangkap-label">
@@ -784,7 +821,6 @@ const poems = {
 
       </div>
 
-
       <div class="rangkap">
 
         <div class="rangkap-label">
@@ -821,7 +857,6 @@ const poems = {
         kita tetap boleh berkawan.
 
       </div>
-
 
       <div class="rangkap">
 
@@ -872,11 +907,7 @@ const MAX_TIME = 60;
 
 function choosePoem(number, card) {
 
-
   selectedPoem = poems[number];
-
-
-  /* Paparkan sajak */
 
   document.getElementById("poemTitle").innerHTML =
     selectedPoem.title;
@@ -887,8 +918,6 @@ function choosePoem(number, card) {
   document.getElementById("selectedPoem").style.display =
     "block";
 
-
-  /* Tandakan kad */
 
   document
     .querySelectorAll(".poem-choice")
@@ -902,8 +931,6 @@ function choosePoem(number, card) {
   card.classList.add("selected");
 
 
-  /* Aktifkan rakaman */
-
   document.getElementById("startBtn").disabled =
     false;
 
@@ -912,23 +939,17 @@ function choosePoem(number, card) {
     "🎙️ Sedia? Tekan Mula Rakam.";
 
 
-  /* =================================
-     PAPARKAN SAJAK DALAM RUANG RAKAMAN
-  ================================= */
+  /* PAPARKAN SAJAK DALAM RUANG RAKAMAN */
 
   document.getElementById("recordPoem").style.display =
     "block";
 
-
   document.getElementById("recordPoemTitle").innerHTML =
     selectedPoem.title;
-
 
   document.getElementById("recordPoemText").innerHTML =
     selectedPoem.text;
 
-
-  /* Scroll ke ruang rakaman */
 
   document.getElementById("recordPoem")
     .scrollIntoView({
@@ -943,11 +964,10 @@ function choosePoem(number, card) {
 
 
 /* =========================
-   TENTUKAN FORMAT AUDIO
+   AUDIO FORMAT
 ========================= */
 
 function getSupportedMimeType() {
-
 
   const types = [
 
@@ -975,18 +995,16 @@ function getSupportedMimeType() {
 
   }
 
-
   return "";
 
 }
 
 
 /* =========================
-   MULA RAKAM
+   START RECORDING
 ========================= */
 
 async function startRecording() {
-
 
   if(!selectedPoem) {
 
@@ -1001,9 +1019,6 @@ async function startRecording() {
 
   try {
 
-
-    /* Minta mikrofon */
-
     const stream =
       await navigator
         .mediaDevices
@@ -1015,9 +1030,6 @@ async function startRecording() {
 
 
     audioChunks = [];
-
-
-    /* Cari format yang sesuai */
 
     mimeType =
       getSupportedMimeType();
@@ -1046,27 +1058,20 @@ async function startRecording() {
     }
 
 
-    /* Data audio */
-
     mediaRecorder.ondataavailable =
       function(event) {
 
         if(event.data.size > 0) {
 
-          audioChunks.push(
-            event.data
-          );
+          audioChunks.push(event.data);
 
         }
 
       };
 
 
-    /* Selepas berhenti */
-
     mediaRecorder.onstop =
       function() {
-
 
         const finalType =
           mimeType ||
@@ -1095,8 +1100,6 @@ async function startRecording() {
           );
 
 
-        /* Paparkan player */
-
         document.getElementById("audioBox")
           .innerHTML = `
 
@@ -1123,17 +1126,17 @@ async function startRecording() {
           .disabled = false;
 
 
+        document.getElementById("galleryBtn")
+          .disabled = false;
+
+
         document.getElementById("success")
           .style.display = "block";
-
 
       };
 
 
-    /* Mula */
-
     mediaRecorder.start();
-
 
     seconds = 0;
 
@@ -1177,14 +1180,12 @@ async function startRecording() {
     document.getElementById("stopBtn")
       .disabled = false;
 
-
   }
+
 
   catch(error) {
 
-
     console.error(error);
-
 
     document.getElementById("status")
       .innerText =
@@ -1207,11 +1208,10 @@ async function startRecording() {
 
 
 /* =========================
-   HENTIKAN RAKAMAN
+   STOP RECORDING
 ========================= */
 
 function stopRecording() {
-
 
   if(
 
@@ -1222,9 +1222,7 @@ function stopRecording() {
 
   ) {
 
-
     mediaRecorder.stop();
-
 
     mediaRecorder.stream
       .getTracks()
@@ -1264,7 +1262,6 @@ function stopRecording() {
 
 function updateTimer() {
 
-
   const minutes =
     Math.floor(
       seconds / 60
@@ -1294,11 +1291,10 @@ function updateTimer() {
 
 
 /* =========================
-   CUBA LAGI
+   RESET
 ========================= */
 
 function resetRecording() {
-
 
   if(audioURL) {
 
@@ -1339,6 +1335,10 @@ function resetRecording() {
     .disabled = true;
 
 
+  document.getElementById("galleryBtn")
+    .disabled = true;
+
+
   document.getElementById("success")
     .style.display = "none";
 
@@ -1346,11 +1346,10 @@ function resetRecording() {
 
 
 /* =========================
-   MUAT TURUN
+   DOWNLOAD
 ========================= */
 
 function downloadRecording() {
-
 
   if(!audioBlob) {
 
@@ -1379,25 +1378,13 @@ function downloadRecording() {
 
 
   let extension =
-    "webm";
-
-
-  if(
-    audioBlob.type.includes(
-      "mp4"
-    )
-  ) {
-
-    extension =
-      "m4a";
-
-  }
+    audioBlob.type.includes("mp4")
+    ? "m4a"
+    : "webm";
 
 
   const link =
-    document.createElement(
-      "a"
-    );
+    document.createElement("a");
 
 
   link.href =
@@ -1431,6 +1418,151 @@ function downloadRecording() {
   document.body.removeChild(
     link
   );
+
+}
+
+
+/* =========================
+   TAMBAH KE GALERI
+========================= */
+
+function addToGallery() {
+
+  if(!audioBlob || !audioURL) {
+
+    alert(
+      "Sila rakam sajak terlebih dahulu."
+    );
+
+    return;
+
+  }
+
+
+  let name =
+    document
+      .getElementById("studentName")
+      .value
+      .trim();
+
+
+  if(!name) {
+
+    name =
+      "Penyajak Cilik";
+
+  }
+
+
+  const gallery =
+    document.getElementById(
+      "galleryList"
+    );
+
+
+  const item =
+    document.createElement(
+      "div"
+    );
+
+
+  item.className =
+    "gallery-item";
+
+
+  item.innerHTML = `
+
+    <div class="badge">
+      🏅 Penyajak Cilik
+    </div>
+
+    <div class="gallery-name">
+      🎙️ ${escapeHTML(name)}
+    </div>
+
+    <div class="gallery-poem">
+      📖 ${escapeHTML(
+        selectedPoem.title
+      )}
+    </div>
+
+    <audio
+      controls
+      src="${audioURL}">
+    </audio>
+
+  `;
+
+
+  gallery.appendChild(
+    item
+  );
+
+
+  document.getElementById(
+    "gallerySection"
+  ).style.display =
+    "block";
+
+
+  document.getElementById(
+    "gallerySection"
+  ).scrollIntoView({
+
+    behavior: "smooth",
+
+    block: "start"
+
+  });
+
+
+  document.getElementById(
+    "galleryBtn"
+  ).disabled = true;
+
+
+  document.getElementById(
+    "status"
+  ).innerText =
+    "🌟 Rakaman kamu telah masuk ke Galeri Penyajak Cilik!";
+
+}
+
+
+/* =========================
+   CUBA SAJAK LAIN
+========================= */
+
+function newPoem() {
+
+  document.getElementById(
+    "selectedPoem"
+  ).scrollIntoView({
+
+    behavior: "smooth",
+
+    block: "start"
+
+  });
+
+
+  resetRecording();
+
+}
+
+
+/* =========================
+   SECURITY
+========================= */
+
+function escapeHTML(text) {
+
+  return text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 
 }
 
